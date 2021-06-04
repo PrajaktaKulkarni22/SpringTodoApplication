@@ -16,7 +16,7 @@ public class RegisterController {
     @Autowired
     private RegisterRepository registerRepository;
 
-    @PostMapping("/register")
+  /*  @PostMapping("/register")
         public Register addUser(@RequestBody Register register){
           return registerRepository.save(register);
     }
@@ -29,7 +29,7 @@ public class RegisterController {
         }
 
         List<Register> registerList=registerRepository.findAll();
-        return "Login successful";
-    }
+        return "Login successful";*/
+    //}
 
 }

@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/task")
 public class TaskController {
 
     @Autowired
@@ -24,9 +24,15 @@ public class TaskController {
        return taskRepository.save(taskList);
     }
 
-    @GetMapping("/displaytask")
+   /* @GetMapping("/displaytask")
     public List<TaskList> displaytask(){
         return taskRepository.findAll();
+    }*/
+
+    @GetMapping("/displaytask")
+    public ResponseEntity<?> displaytask(){
+        List<TaskList> list=taskRepository.findAll();
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/taskbyid/{taskId}")
