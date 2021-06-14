@@ -5,9 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TaskRepository extends JpaRepository<TaskList,Integer> {
 
-    @Query(value = "select * from task_list t where t.task_name like %?1%",nativeQuery = true)
-    List<TaskList> searchTask (String keyword);
+    @Query(value = "select t.task_id as value, t.task_name as label from task_list t where t.task_name like %?%",nativeQuery = true)
+    List<Map<String,Object>> searchTask (String keyword);
 }

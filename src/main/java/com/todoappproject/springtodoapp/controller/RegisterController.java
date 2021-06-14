@@ -16,12 +16,12 @@ public class RegisterController {
     @Autowired
     private RegisterRepository registerRepository;
 
-  /*  @PostMapping("/register")
+    /*@PostMapping("/register")
         public Register addUser(@RequestBody Register register){
           return registerRepository.save(register);
-    }
+    }*/
 
-    @PostMapping("/login")
+   /* @PostMapping("/login")
     public String login(@RequestBody Login login){
         Register register=registerRepository.findByEmailAndPassword(login.getEmail(),login.getPassword());
         if (register == null){

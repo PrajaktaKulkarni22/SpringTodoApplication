@@ -27,6 +27,11 @@ public class UserController {
         return ResponseEntity.ok("Success");
     }
 
+    @PostMapping("/register")
+    public Register addUser(@RequestBody Register register){
+        return userRepository.save(register);
+    }
+
 
 
 }
