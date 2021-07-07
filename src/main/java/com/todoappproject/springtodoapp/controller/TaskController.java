@@ -59,4 +59,8 @@ public class TaskController {
     public List<Map<String,Object>> search(@PathVariable String keyword){
         return taskRepository.searchTask(keyword);
     }
+
+/*
+    select * from register where email=x and password=y
+*/
 }

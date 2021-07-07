@@ -21,16 +21,25 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> checkLogin(@RequestBody Login login){
         Optional<Register> user=userRepository.findByEmailAndPassword(login.getEmail(), login.getPassword());
-        if (user==null){
-            return ResponseEntity.badRequest().body("Invalid Credentials") ;
+        System.out.println(user);
+        if (user.isPresent()){
+            return ResponseEntity.ok("Success");
+
         }
-        return ResponseEntity.ok("Success");
+        return ResponseEntity.badRequest().body("Invalid Credentials") ;
+
     }
 
     @PostMapping("/register")
     public Register addUser(@RequestBody Register register){
         return userRepository.save(register);
     }
+
+    /*@PutMapping("/updatePassword/{email}")
+    public ResponseEntity<?> updatePassword(@PathVariable String email,@RequestBody Register register){
+
+
+    }*/
 
 
 
